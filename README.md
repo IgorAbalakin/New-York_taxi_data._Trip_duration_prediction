@@ -115,7 +115,7 @@ ____
 
         learning_rate = 0.5;
         n_estimators = 100;
-         max_depth = 6;
+        max_depth = 6;
         min_samples_split = 30;
         random_state = 42.
 
