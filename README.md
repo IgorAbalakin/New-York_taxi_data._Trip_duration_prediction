@@ -105,19 +105,19 @@ ____
 
 1. Построить модель случайного леса на обучающей выборке. В качестве гиперпараметров укажем следующие:
 
-        n_estimators = 200;
-        max_depth = 12;
-        criterion = 'squared_error';
-        min_samples_split = 20;
-        random_state = 42.
+                n_estimators = 200;
+                max_depth = 12;
+                criterion = 'squared_error';
+                min_samples_split = 20;
+                random_state = 42.
 
 2. Построить модель градиентного бустинга над деревьями решений (GradientBoostingRegressor) на обучающей выборке. В качестве гиперпараметров укажем следующие:
 
-        learning_rate = 0.5;
-        n_estimators = 100;
-         max_depth = 6;
-        min_samples_split = 30;
-        random_state = 42.
+                learning_rate = 0.5;
+                n_estimators = 100;
+                max_depth = 6;
+                min_samples_split = 30;
+                random_state = 42.
 
 3. Для лучшей из построенных моделей рассчитать медианную абсолютную ошибку (MeAE, в sklearn — функция median_absolute_error) предсказания длительности поездки такси на валидационной выборке.
 
