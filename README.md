@@ -9,9 +9,9 @@
 
 [4. Отбор и преобразование признаков](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Отбор-и-преобразование-признаков) 
 
-[5. Решение задачи регрессии: линейная регрессия и деревья решений](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Решение-задачи-регрессии:-линейная-регрессия-и-деревья-решений) 
+[5. Решение задачи регрессии: линейная регрессия и деревья решений](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Решение-задачи-регрессии-линейная-регрессия-и-деревья-решений) 
 
-[6. Решение задачи регрессии: ансамблевые методы и построение прогноза](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Решение-задачи-регрессии:-ансамблевые-методы-и-построение-прогноза) 
+[6. Решение задачи регрессии: ансамблевые методы и построение прогноза](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Решение-задачи-регрессии-ансамблевые-методы-и-построение-прогноза) 
  
 ____
 ### Описание проекта 
