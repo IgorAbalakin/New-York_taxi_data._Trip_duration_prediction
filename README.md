@@ -130,8 +130,11 @@ ____
 ### * Используемые в проекте данные, которые не удалось разместить в репозитории GitHub
 
 [Файл с обучающей выборкой](https://drive.google.com/file/d/1X_EJEfERiXki0SKtbnCL9JDv49Go14lF/view?usp=sharing)
+
 [Файлы с данными из OSRM для поездок из тренировочной таблицы](https://drive.google.com/file/d/1ecWjor7Tn3HP7LEAm5a0B_wrIfdcVGwR/view?usp=sharing)
+
 [Файл с тестовой выборкой](https://drive.google.com/file/d/1C2N2mfONpCVrH95xHJjMcueXvvh_-XYN/view?usp=sharing)
+
 [Файл с данными из OSRM API для тестовой выборки](https://drive.google.com/file/d/1wCoS-yOaKFhd1h7gZ84KL9UwpSvtDoIA/view?usp=sharing)
 
 :arrow_up: [к оглавлению](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Оглавление)
