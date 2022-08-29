@@ -13,7 +13,7 @@
 
 [6. Решение задачи регрессии: ансамблевые методы и построение прогноза](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Решение-задачи-регрессии-ансамблевые-методы-и-построение-прогноза) 
 
-[* Используемые в проекте данные, которые не удалось разместить в репозитории GitHub](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#*-Используемые-в-проекте-данные,-которые-не-удалось-разместить-в-репозитории-GitHub) 
+[* Используемые в проекте данные, которые не удалось разместить в репозитории GitHub](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#*-Используемые-в-проекте-данные-,-которые-не-удалось-разместить-в-репозитории-GitHub) 
 
 
  
