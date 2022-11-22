@@ -1,120 +1,117 @@
-# PROJECT-5. Задача регрессии 
+# New York taxi data (trip duration prediction) 
 
-### Оглавление 
-[1. Описание проекта](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Описание-проекта) 
+### Content
+[1. Project Description](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Project-Description) 
 
-[2. Первичная обработка данных](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Первичная-обработка-данных) 
+[2. Data overview and basic analysis](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Data-overview-and-basic-analysis) 
 
-[3. Разведывательный анализ данных](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Разведывательный-анализ-данных) 
+[3. Exploration Data Analysis (EDA)](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Exploration-Data-Analysis-(EDA)) 
 
-[4. Отбор и преобразование признаков](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Отбор-и-преобразование-признаков) 
+[4. Feature engineering](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Feature-engineering) 
 
-[5. Решение задачи регрессии: линейная регрессия и деревья решений](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Решение-задачи-регрессии-линейная-регрессия-и-деревья-решений) 
+[5. Solving the regression task: linear regression and decision trees](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Solving-the-regression-task-linear-regression-and-decision-trees) 
 
-[6. Решение задачи регрессии: ансамблевые методы и построение прогноза](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Решение-задачи-регрессии-ансамблевые-методы-и-построение-прогноза) 
+[6. Solving the regression task: ensemble methods and forecasting](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Solving-the-regression-task-ensemble-methods-and-forecasting) 
 
-[7. Используемые в проекте данные, которые не удалось разместить в репозитории GitHub](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Используемые-в-проекте-данные-которые-не-удалось-разместить-в-репозитории-GitHub) 
+[7. Data used in the project that couldn't be placed in the GitHub repository](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Data-used-in-the-project-that-couldn't-be-placed-in-the-GitHub-repository) 
 
 
  
 ____
-### Описание проекта 
+### Project Description 
 
-Известно, что стоимость такси в США рассчитывается на основе фиксированной ставки и тарифной стоимости, величина которой зависит от времени и расстояния. Тарифы варьируются в зависимости от города.
+It's known that the cost of a taxi in the USA is calculated on the basis of a fixed rate and tariff cost, the value of which depends on time and distance. Rates vary depending on the city.
 
-В свою очередь, время поездки зависит от множества факторов, таких как направление поездки, время суток, погодные условия и так далее.
+In turn, the trip duration depends on many factors, such as the direction of the trip, time of day, weather conditions, and so on.
 
-Таким образом, если разработать алгоритм, способный определять длительность поездки, можно будет прогнозировать её стоимость самым тривиальным образом, например, просто умножая стоимость на заданный тариф. 
+Thus, if we develop an algorithm capable of determining the trip duration, it'll be possible to predict its cost in the most trivial way, for example, simply multiplying the cost by a given fare.
 
-Сервисы такси хранят огромные объёмы информации о поездках, включая такие данные, как конечная и начальная точки маршрута, дата поездки и её продолжительность. Эти данные можно использовать для того, чтобы прогнозировать длительность поездки в автоматическом режиме с привлечением искусственного интеллекта.
+Taxi services store huge amounts of information about trips, including data such as the end and start points of the route, the date of the trip and its duration. This data can be used to predict the duration of the trip in automatic mode with the involvement of artificial intelligence.
 
-*Бизнес-задача:* определить характеристики и с их помощью спрогнозировать длительность поездки на такси.
+*Business task:* determine the characteristics and use them to predict the duration of a taxi trip.
 
-*Техническая задача*: построить модель машинного обучения, которая на основе предложенных характеристик клиента будет предсказывать числовой признак — время поездки такси, то есть решить задачу регрессии.
+*Technical task*: to create a machine learning model that based on the proposed characteristics of the client, will predict a numerical feature — the trip duration, so to solve the regression task.
  
-:arrow_up: [к оглавлению](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Оглавление)
+:arrow_up: [up to content](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Content)
 
  ____
-### Первичная обработка данных
+### Data overview and basic analysis
 
-Данные о клиенте и таксопарке:
+Customer and taxi company data:
 
-        id — уникальный идентификатор поездки;
-        vendor_id — уникальный идентификатор поставщика услуг (таксопарка), связанного с записью поездки.
+        id — unique trip ID;
+        vendor_id — the unique identifier of the service provider (taxi company) associated with the trip.
 
-Временные характеристики:
+Temporary data:
 
-        pickup_datetime — дата и время, когда был включён счётчик поездки;
-        dropoff_datetime — дата и время, когда счётчик был отключён.
+        pickup_datetime — date and time when the trip counter was turned on;
+        dropoff_datetime — date and time when the trip counter was turned off.
 
-Географическая информация:
+Geographical data:
 
-        pickup_longitude — долгота, на которой был включён счётчик;
-        pickup_latitude — широта, на которой был включён счётчик;
-        dropoff_longitude — долгота, на которой счётчик был отключён;
-        dropoff_latitude — широта, на которой счётчик был отключён.
+        pickup_longitude — the longitude where the counter was turned on;
+        pickup_latitude — the latitude where the counter was turned on;
+        dropoff_longitude — the longitude where the counter was turned off;
+        dropoff_latitude — the latitude where the counter was turned off.
 
-Прочие признаки:
+Other features:
 
-        passenger_count — количество пассажиров в транспортном средстве (введённое водителем значение);
-        store_and_fwd_flag — флаг, который указывает, сохранилась ли запись о поездке в памяти транспортного средства перед отправкой поставщику (Y — хранить и пересылать, N — не хранить и не пересылать поездку).
+        passenger_count — number of passengers in the vehicle (value entered by the driver);
+        store_and_fwd_flag — a flag that indicates whether a trip has been saved in the vehicle's memory before being sent to the supplier (Y — store and forward, N — don't store and forward the trip).
 
-Целевой признак:
+Target value:
 
-        trip_duration — продолжительность поездки в секундах.
+        trip_duration — duration of the trip in seconds.
 
-
-:arrow_up: [к оглавлению](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Оглавление)
+:arrow_up: [up to content](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Content)
 
 ____
-### Разведывательный анализ данных
+### Exploration Data Analysis (EDA)
 
-В данной части проекта необходимо выполнить:
+In this part of the project, you need to perform:
 
-        - исследование данные;
-        - поиск закономерностей, позволяющих сформулировать предварительные гипотезы относительно того, какие факторы являются решающими для оформления депозита;
-        - построение визуализаций, иллюстрирующих исследование.
+        1. Research data;
+        2. Search for patterns that allow us to formulate preliminary hypotheses about which factors are decisive for the trip duration;
+        3. Creating visualizations that illustrate this study.
 
 
-
-:arrow_up: [к оглавлению](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Оглавление)
+:arrow_up: [up to content](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Content)
 
  ____
-### Отбор и преобразование признаков
+### Feature engineering
 
-Перед построением модели необходимо выполнить следующие шаги:
+Before making a model, we need to perform the following steps:
 
-        1. Многие алгоритмы машинного обучения не могут обрабатывать категориальные признаки в их обычном виде. Поэтому нам необходимо их закодировать.
-        2. МНеобходимо масштабировать и трансформировать некоторые признаки для того, чтобы улучшить сходимость моделей, в основе которых лежат численные методы.
-        3. Отобрать признаки, которые для использования для обучения модели.
+        1. Many machine learning algorithms cannot process categorical features in their usual form. Therefore, we need to encode them.
+        2. It's necessary to scale and transform some features in order to improve the convergence of models based on numerical methods.
+        3. Select the features that will be used for training the model.
 
-
-:arrow_up: [к оглавлению](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Оглавление)
+:arrow_up: [up to content](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Content)
  
 ____
-### Решение задачи регрессии: линейная регрессия и деревья решений
+### Solving the regression task: linear regression and decision trees
 
-В данной части проекта необходимо выполнить:
+In this part of the project, we need to perform:
 
-        1. Построить модель линейной регрессии на обучающей выборке.
-        2. Сгенерировать полиномиальные признаки второй степени с помощью PolynomialFeatures из библиотеки sklearn. Построить модель полиномиальной регрессии второй степени на обучающей выборке.
-        - построение визуализаций, иллюстрирующих исследование.
-        3. Построить модель полиномиальной регрессиивторой степени с L2-регуляризацией (регуляризацией по Тихонову) на обучающей выборке ( Коэффициент регуляризации установить равным 1, остальные параметры оставить по умолчанию.
-        4. Построить модель дерева решений (DecisionTreeRegressor) на обучающей выборке.
+        1. Make a linear regression model on a training sample.
+        2. Generate polynomial features of the second degree using PolynomialFeatures from the sklearn library. Make a second degree polynomial regression model on a training sample.
+        3. Create visualizations that illustrate this study.
+        4. Create a second-degree polynomial regression model with L2-regularization (Tikhonov regularization) on a training sample (set the regularization coefficient to 1, and leave the other parameters by default).
+        5. Create a Decision Tree model (Decision Tree Regressor) on a training sample.
 
-:arrow_up: [к оглавлению](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Оглавление)
+:arrow_up: [up to content](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Content)
  
 ____
-### Решение задачи регрессии: ансамблевые методы и построение прогноза
+### Solving the regression task: ensemble methods and forecasting
 
-1. Построить модель случайного леса на обучающей выборке. В качестве гиперпараметров укажем следующие:
+1. Create a random forest model on a training sample. As hyperparameters , we specify the following:
 
         n_estimators = 200;
         max_depth = 12;
         riterion = 'squared_error';
         random_state = 42.
 
-2. Построить модель градиентного бустинга над деревьями решений (GradientBoostingRegressor) на обучающей выборке. В качестве гиперпараметров укажем следующие:
+2. Create a gradient boosting model over decision trees (Gradient Boosting Regressor) on a training sample. As hyperparameters , we specify the following:
 
         learning_rate = 0.5;
         n_estimators = 100;
@@ -122,20 +119,20 @@ ____
         min_samples_split = 30;
         random_state = 42.
 
-3. Для лучшей из построенных моделей рассчитать медианную абсолютную ошибку (MeAE, в sklearn — функция median_absolute_error) предсказания длительности поездки такси на валидационной выборке.
+3. For the best of the designed models, calculate the median absolute error (MeAE, in sklearn — the media_absolute_error function) of predicting the taxi trip  duration on a validation sample.
 
-:arrow_up: [к оглавлению](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Оглавление)
+:arrow_up: [up to content](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Content)
   ____
   
-### Используемые в проекте данные, которые не удалось разместить в репозитории GitHub
+### Data used in the project that couldn't be placed in the GitHub repository
 
-[Файл с обучающей выборкой](https://drive.google.com/file/d/1X_EJEfERiXki0SKtbnCL9JDv49Go14lF/view?usp=sharing)
+[File with a training sample](https://drive.google.com/file/d/1X_EJEfERiXki0SKtbnCL9JDv49Go14lF/view?usp=sharing)
 
-[Файлы с данными из OSRM для поездок из тренировочной таблицы](https://drive.google.com/file/d/1ecWjor7Tn3HP7LEAm5a0B_wrIfdcVGwR/view?usp=sharing)
+[Data files from OSRM for trips from the training table](https://drive.google.com/file/d/1ecWjor7Tn3HP7LEAm5a0B_wrIfdcVGwR/view?usp=sharing)
 
-[Файл с тестовой выборкой](https://drive.google.com/file/d/1C2N2mfONpCVrH95xHJjMcueXvvh_-XYN/view?usp=sharing)
+[File with a test sample](https://drive.google.com/file/d/1C2N2mfONpCVrH95xHJjMcueXvvh_-XYN/view?usp=sharing)
 
-[Файл с данными из OSRM API для тестовой выборки](https://drive.google.com/file/d/1wCoS-yOaKFhd1h7gZ84KL9UwpSvtDoIA/view?usp=sharing)
+[Data files from OSRM for trips from the test table](https://drive.google.com/file/d/1wCoS-yOaKFhd1h7gZ84KL9UwpSvtDoIA/view?usp=sharing)
 
-:arrow_up: [к оглавлению](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Оглавление)
+:arrow_up: [up to content](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Content)
   ____
