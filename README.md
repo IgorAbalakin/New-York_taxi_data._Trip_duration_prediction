@@ -5,7 +5,7 @@
 
 [2. Data overview and basic analysis](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Data-overview-and-basic-analysis) 
 
-[3. Exploration Data Analysis (EDA)](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Exploration-Data-Analysis-(EDA)) 
+[3. Exploration Data Analysis (EDA)](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Exploration-Data-Analysis-EDA) 
 
 [4. Feature engineering](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Feature-engineering) 
 
