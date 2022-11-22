@@ -13,7 +13,7 @@
 
 [6. Solving the regression task: ensemble methods and forecasting](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Solving-the-regression-task-ensemble-methods-and-forecasting) 
 
-[7. Data used in the project that couldn't be placed in the GitHub repository](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Data-used-in-the-project-that-couldn't-be-placed-in-the-GitHub-repository) 
+[7. Data used in the project that couldn't be placed in the GitHub repository](https://github.com/IgorAbalakin/NY_taxi_data_regression_project/blob/main/README.md#Data-used-in-the-project-that-couldn-t-be-placed-in-the-GitHub-repository) 
 
 
  
